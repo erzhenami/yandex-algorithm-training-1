@@ -28,13 +28,11 @@ let firstMax = a * (n + 1) + n * 1
 let secondMin = b * (m - 1) + m * 1
 let secondMax = b * (m + 1) + m * 1
 
-let firstRange: Range = firstMin..<firstMax + 1
-let secondRange: Range = secondMin..<secondMax + 1
+let minimum = max(firstMin, secondMin)
+let maximum = min(firstMax, secondMax)
 
-if firstRange.overlaps(secondRange) {
-	let minimum = max(firstMin, secondMin)
-    let maximum = min(firstMax, secondMax)
-	print("\(minimum) \(maximum)")
-} else {
+if maximum < minimum {
 	print("-1")
+} else {
+	print("\(minimum) \(maximum)")
 }
