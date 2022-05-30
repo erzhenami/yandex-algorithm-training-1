@@ -14,14 +14,26 @@
 
 import Foundation
 
-let a = Int(readLine()!)!
-let b = Int(readLine()!)!
-let c = Int(readLine()!)!
-let d = Int(readLine()!)!
-let e = Int(readLine()!)!
+var a = Int(readLine()!)!
+var b = Int(readLine()!)!
+var c = Int(readLine()!)!
+var d = Int(readLine()!)!
+var e = Int(readLine()!)!
 
-if (d >= a && e >= b) || (d >= b && e >= a) || (d >= c && e >= a) || (d >= c && e >= b) {
+(a, b) = sort2(a, b)
+(b, c) = sort2(b, c)
+(a, b) = sort2(a, b)
+(d, e) = sort2(d, e)
+
+if a <= d && b <= e {
 	print("YES")
 } else {
 	print("NO")
+}
+
+func sort2(_ first: Int, _ second: Int) -> (Int, Int) {
+    if first < second {
+        return (first, second)
+    }
+    return (second, first)
 }
